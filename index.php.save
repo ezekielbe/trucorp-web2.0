@@ -1,0 +1,19 @@
+<?php
+
+echo "Hello";
+echo "<br>";
+$con = mysqli_connect("172.18.0.2","root","123","Trucorp");
+if(!$con){
+echo "Unable to connect" 
+
+echo "Done, connection is successful." . PHP_EOL;
+echo "<br>";
+echo "Host Information: " . mysqli_get_host_info($con) . PHP_EOL;
+$sql = "SELECT * FROM Trucorp.users;";
+$res = mysqli_result($con,$sql);
+echo $sql;
+while($row = mysqli_fetch_array($res)) print_r($row);
+
+mysqli_close($con);
+?>
+
